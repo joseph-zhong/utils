@@ -14,8 +14,7 @@ the docstring for the following help message!
 
 ## Table of Contents
 
-- [Philsophy, and why use `utils](#philsophy): A primer on the design behind
-  `utils`.
+- [Philsophy](#philsophy): A primer on the design behind `utils`.
 - [Getting Started](#getting-started): How to use `utils`
 - [TODOs](#todos): Some future work
 - [Organization](#organiztaion): Example directory organization on how to use
