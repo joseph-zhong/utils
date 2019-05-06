@@ -63,6 +63,30 @@ visualizations, etc.
    ```bash
    export WS_PATH=/path/to/your/ws/dir
    ```
+1. Use `parseArgsForClassOrScript(...)` to turn a python function into the head
+   for a cmdline script
+
+  ```python
+  import src.utils.utility as _util
+  import src.utils.cmd_line as _cmd
+
+  def train(dataset: str, num_epochs: int, ...):
+      ...
+      for epoch in range(num_epochs):
+          train_step(...)
+      ...
+
+  def main():
+      global _logger
+      args = _cmd.parseArgsForClassOrScript(train)
+      varsArgs = vars(args)
+      verbosity = varsArgs.pop('verbosity', _util.DEFAULT_VERBOSITY)
+      _logger.info("Passed arguments: '{}'".format(varsArgs))
+      train(**varsArgs)
+
+  if __name__ == '__main__':
+      main()
+  ```
 
 ## TODOs
 
