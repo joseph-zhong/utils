@@ -66,11 +66,17 @@ visualizations, etc.
 1. Use `parseArgsForClassOrScript(...)` to turn a python function into the head
    for a cmdline script
 
+   For example, a script called `train.py` for the purpose of training models
+   would be able to then be invoked with the following command
+
+   `./train.py --dataset=mnist --num_epochs=50 --batch_size=128`
+
   ```python
+  #!/usr/bin/env python
   import src.utils.utility as _util
   import src.utils.cmd_line as _cmd
 
-  def train(dataset: str, num_epochs: int, ...):
+  def train(dataset: str, num_epochs: int, batch_size=16, ...):
       ...
       for epoch in range(num_epochs):
           train_step(...)
